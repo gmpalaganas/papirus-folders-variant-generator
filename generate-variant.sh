@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 #
 # A utility script to generate and manage custom color variants for the Papirus Icon Theme.
 # Compatible with Papirus: https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
