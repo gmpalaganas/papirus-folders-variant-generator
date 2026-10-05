@@ -56,11 +56,10 @@ $./generate-variant.sh [OPTIONS] variant_file
 * `-h` : Display help message and exit.
 
 
-* `-i` : Install the generated variant icons into the system Papirus directory (`/usr/share/icons/Papirus`). Requires `sudo`.
+* `-i` : Install the generated variant icons into the Papirus icon theme install directory (`~/.local/share/icons/Papirus` by default). May require `sudo`.
 
 
-* `-u` : Uninstall the specified variant icons from the system Papirus directory. Requires `sudo`.
-
+* `-u` : Uninstall the specified variant icons from the Papirus icon theme install directory. May require `sudo`
 
 * `-n` : Skip generation mode (useful if the variant is already generated and you only want to install).
 
