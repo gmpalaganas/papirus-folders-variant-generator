@@ -37,8 +37,8 @@ A script to generate, install, or uninstall custom color variants for the Papiru
 
 OPTIONS:
   -h        Display this help message and exit
-  -i        Install the generated variant icons into the system Papirus directory (/usr/share/icons/Papirus)
-  -u        Uninstall the specified variant icons from the system Papirus directory
+  -i        Install the generated variant icons into the Papirus icon theme install directory (~/.local/share/icons/Papirus by default)
+  -u        Uninstall the specified variant icons from the Papirus icon theme install directory
   -n        Skip generation mode (useful if the variant is already generated and you only want to install)
 
 ARGUMENTS:
