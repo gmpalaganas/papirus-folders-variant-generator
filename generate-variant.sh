@@ -75,6 +75,13 @@ read_file() {
     IFS= read -r NEW_DOCUMENT_COLOR
   } <"$1"
 
+  case "${NEW_VARIANT_NAME,,}" in
+  adwaita | black | blue | bluegrey | breeze | brown | carmine | cyan | darkcyan | deeporange | green | grey | indigo | magenta | nordic | orange | palebrown | paleorange | pink | red | teal | violet | white | yaru | yellow)
+    echo -e "\e[0;31mError\e[0m: \e[0;33m$NEW_VARIANT_NAME\e[0m is a stock Papirus variant name" >&2
+    exit 1
+    ;;
+  esac
+
   local filename_part_regex='^[a-zA-Z0-9_ .-]+$'
   local hex_color_regex='^([0-9a-fA-F]{6})$'
 
