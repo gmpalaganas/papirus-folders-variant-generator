@@ -128,7 +128,7 @@ create_new_folder_icon_file() {
 
   if [[ -L $file ]]; then
     target=$(readlink "$file")
-    new_target=$(echo "$target" | sed "s/$OLD_VARIANT_NAME/$NEW_VARIANT_NAME/g")
+    new_target=$(echo "$target" | sed "s/-$OLD_VARIANT_NAME/-$NEW_VARIANT_NAME/g")
 
     if [[ -L "$new_file" ]]; then
       rm "$new_file"
