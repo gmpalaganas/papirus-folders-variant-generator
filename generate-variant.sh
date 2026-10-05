@@ -216,7 +216,7 @@ if $INSTALL_MODE; then
   fi
 
   echo -e "\e[0;34mInstalling variant: \e[0;33m$NEW_VARIANT_NAME\e[0m"
-  sudo cp -PR "$NEW_VARIANT_NAME"/* /usr/share/icons/Papirus/
+  sudo cp -PR "$NEW_VARIANT_NAME"/* "$TARGET_BASE"
 fi
 
 if $UNINSTALL_MODE; then
