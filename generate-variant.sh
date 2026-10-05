@@ -4,7 +4,7 @@
 # Compatible with Papirus: https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
 #
 
-set -uo pipefail
+set -euo pipefail
 
 SUBDIRS=('16x16' '22x22' '24x24' '32x32' '48x48' '64x64')
 TARGET_BASE="$HOME/.local/share/icons/Papirus"
