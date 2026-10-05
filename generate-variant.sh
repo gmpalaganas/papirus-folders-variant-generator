@@ -113,11 +113,16 @@ read_file() {
 
 recolor_folder_icon() {
   local folder_file=$1
+
   sed -i \
-    -e "s/$OLD_MAIN_COLOR/$NEW_MAIN_COLOR/g" \
-    -e "s/$OLD_BACK_COLOR/$NEW_BACK_COLOR/g" \
-    -e "s/$OLD_EMBLEM_COLOR/$NEW_EMBLEM_COLOR/g" \
-    -e "s/$OLD_DOCUMENT_COLOR/$NEW_DOCUMENT_COLOR/g" \
+    -e "s/#$OLD_MAIN_COLOR\b/@@MAIN@@/gI" \
+    -e "s/#$OLD_BACK_COLOR\b/@@BACK@@/gI" \
+    -e "s/#$OLD_EMBLEM_COLOR\b/@@EMBLEM@@/gI" \
+    -e "s/#$OLD_DOCUMENT_COLOR\b/@@DOC@@/gI" \
+    -e "s/@@MAIN@@/#$NEW_MAIN_COLOR/g" \
+    -e "s/@@BACK@@/#$NEW_BACK_COLOR/g" \
+    -e "s/@@EMBLEM@@/#$NEW_EMBLEM_COLOR/g" \
+    -e "s/@@DOC@@/#$NEW_DOCUMENT_COLOR/g" \
     "$folder_file"
 }
 
