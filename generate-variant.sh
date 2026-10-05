@@ -232,8 +232,8 @@ if $UNINSTALL_MODE; then
     cur_dir="$TARGET_BASE/$size/places"
     if [[ -d $cur_dir ]]; then
       echo -e "\e[0;34mRemoving \e[0;33m$NEW_VARIANT_NAME\e[0;34m icons from directory\e[0m: $cur_dir"
-      $SUDO sudo rm -f "${cur_dir}/folder-${NEW_VARIANT_NAME}"*.svg
-      $SUDO sudo rm -f "${cur_dir}/user-${NEW_VARIANT_NAME}"*.svg
+      $SUDO rm -f "${cur_dir}/folder-${NEW_VARIANT_NAME}"*.svg
+      $SUDO rm -f "${cur_dir}/user-${NEW_VARIANT_NAME}"*.svg
     else
       echo "Skipping $cur_dir (directory not found)"
     fi
