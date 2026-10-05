@@ -125,14 +125,14 @@ create_new_folder_icon_file() {
     target=$(readlink "$file")
     new_target=$(echo "$target" | sed "s/$OLD_VARIANT_NAME/$NEW_VARIANT_NAME/g")
 
-    if [[ -L $new_file ]]; then
-      rm $new_file
+    if [[ -L "$new_file" ]]; then
+      rm "$new_file"
     fi
 
     ln -s "$new_target" "$new_file"
   else
     cp "$file" "$new_file"
-    recolor_folder_icon $new_file
+    recolor_folder_icon "$new_file"
   fi
 }
 
@@ -187,7 +187,7 @@ read_file $1
 
 if $GENERATE_MODE; then
   echo -e "\e[0;32mGENERATING COLOR\e[0m"
-  mkdir -p $NEW_VARIANT_NAME
+  mkdir -p "$NEW_VARIANT_NAME"
 
   for size in "${SUBDIRS[@]}"; do
     cur_dir="$TARGET_BASE/$size/places"
@@ -210,7 +210,7 @@ if $GENERATE_MODE; then
 fi
 
 if $INSTALL_MODE; then
-  if [[ ! -d $NEW_VARIANT_NAME ]]; then
+  if [[ ! -d "$NEW_VARIANT_NAME" ]]; then
     echo -e "\e[0;31mError\e[0m: Variant folder \e[0;33m$NEW_VARIANT_NAME\e[0m not found" >&2
     exit 1
   fi
