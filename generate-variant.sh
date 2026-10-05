@@ -147,10 +147,6 @@ while getopts "niuh" flag; do
   u)
     UNINSTALL_MODE=true
     GENERATE_MODE=false
-    if $INSTALL_MODE; then
-      echo -e "\e[0;31mError\e[0m: Option -u cannot be used with -i" >&2
-      exit 1
-    fi
     ;;
   h)
     print_help
@@ -162,6 +158,11 @@ while getopts "niuh" flag; do
     ;;
   esac
 done
+
+if ($INSTALL_MODE && $UNINSTALL_MODE); then
+  echo -e "\e[0;31mError\e[0m: Option -u cannot be used with -i" >&2
+  exit 1
+fi
 
 shift $((OPTIND - 1))
 
