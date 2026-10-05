@@ -73,7 +73,7 @@ read_file() {
     IFS= read -r NEW_BACK_COLOR
     IFS= read -r NEW_EMBLEM_COLOR
     IFS= read -r NEW_DOCUMENT_COLOR
-  } <$1
+  } <"$1"
 
   local filename_part_regex='^[a-zA-Z0-9_ .-]+$'
   local hex_color_regex='^([0-9a-fA-F]{6})$'
@@ -128,10 +128,10 @@ recolor_folder_icon() {
 
 create_new_folder_icon_file() {
   local file="$1" size="$2" target new_target
-  local base_file_name=${file##*/}
+  local base_file_name="${file##*/}"
   local new_file="$NEW_VARIANT_NAME/$size/places/${base_file_name/$OLD_VARIANT_NAME/$NEW_VARIANT_NAME}"
 
-  if [[ -L $file ]]; then
+  if [[ -L "$file" ]]; then
     target=$(readlink "$file")
     new_target=$(echo "$target" | sed "s/-$OLD_VARIANT_NAME/-$NEW_VARIANT_NAME/g")
 
@@ -194,7 +194,7 @@ else
   exit 1
 fi
 
-read_file $1
+read_file "$1"
 
 if $GENERATE_MODE; then
   echo -e "\e[0;32mGENERATING COLOR\e[0m"
@@ -213,7 +213,7 @@ if $GENERATE_MODE; then
 
       for prefix in folder user; do
         for file in "${cur_dir}/${prefix}-${OLD_VARIANT_NAME}-"*.svg; do
-          create_new_folder_icon_file $file $size
+          create_new_folder_icon_file "$file" "$size"
         done
       done
     fi
