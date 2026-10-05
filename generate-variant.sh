@@ -74,27 +74,27 @@ read_file() {
   local hex_color_regex='^([0-9a-fA-F]{6})$'
 
   if [[ ! "$NEW_VARIANT_NAME" =~ $filename_part_regex ]]; then
-    echo -e "\e[0;31mError\e[0m: \e[0;33n$NEW_VARIANT_NAME\e[0m is not a valid filename component" >&2
+    echo -e "\e[0;31mError\e[0m: \e[0;33m$NEW_VARIANT_NAME\e[0m is not a valid filename component" >&2
     exit 1
   fi
 
   if [[ ! "$NEW_MAIN_COLOR" =~ $hex_color_regex ]]; then
-    echo -e "\e[0;31mError\e[0m: \e[0;33n$NEW_MAIN_COLOR\e[0m is not a valid color hex code" >&2
+    echo -e "\e[0;31mError\e[0m: \e[0;33m$NEW_MAIN_COLOR\e[0m is not a valid color hex code" >&2
     exit 1
   fi
 
   if [[ ! "$NEW_BACK_COLOR" =~ $hex_color_regex ]]; then
-    echo -e "\e[0;31mError\e[0m: \e[0;33n$NEW_BACK_COLOR\e[0m is not a valid color hex code" >&2
+    echo -e "\e[0;31mError\e[0m: \e[0;33m$NEW_BACK_COLOR\e[0m is not a valid color hex code" >&2
     exit 1
   fi
 
   if [[ ! "$NEW_EMBLEM_COLOR" =~ $hex_color_regex ]]; then
-    echo -e "\e[0;31mError\e[0m: \e[0;33n$NEW_EMBLEM_COLOR\e[0m is not a valid color hex code" >&2
+    echo -e "\e[0;31mError\e[0m: \e[0;33m$NEW_EMBLEM_COLOR\e[0m is not a valid color hex code" >&2
     exit 1
   fi
 
   if [[ ! "$NEW_DOCUMENT_COLOR" =~ $hex_color_regex ]]; then
-    echo -e "\e[0;31mError\e[0m: \e[0;33n$NEW_DOCUMENT_COLOR\e[0m is not a valid color hex code" >&2
+    echo -e "\e[0;31mError\e[0m: \e[0;33m$NEW_DOCUMENT_COLOR\e[0m is not a valid color hex code" >&2
     exit 1
   fi
   echo " "
