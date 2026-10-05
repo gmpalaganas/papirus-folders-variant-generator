@@ -13,6 +13,11 @@ if [ ! -d "$TARGET_BASE" ]; then
   TARGET_BASE="/usr/share/icons/Papirus"
 fi
 
+SUDO=''
+if [[ ! -w $TARGET_BASE ]]; then
+  SUDO='sudo'
+fi
+
 GENERATE_MODE=true
 INSTALL_MODE=false
 UNINSTALL_MODE=false
@@ -217,7 +222,7 @@ if $INSTALL_MODE; then
   fi
 
   echo -e "\e[0;34mInstalling variant: \e[0;33m$NEW_VARIANT_NAME\e[0m"
-  sudo cp -PR "$NEW_VARIANT_NAME"/* "$TARGET_BASE"
+  $SUDO cp -PR "$NEW_VARIANT_NAME"/* "$TARGET_BASE"
 fi
 
 if $UNINSTALL_MODE; then
@@ -227,8 +232,8 @@ if $UNINSTALL_MODE; then
     cur_dir="$TARGET_BASE/$size/places"
     if [[ -d $cur_dir ]]; then
       echo -e "\e[0;34mRemoving \e[0;33m$NEW_VARIANT_NAME\e[0;34m icons from directory\e[0m: $cur_dir"
-      sudo rm -f "${cur_dir}/folder-${NEW_VARIANT_NAME}"*.svg
-      sudo rm -f "${cur_dir}/user-${NEW_VARIANT_NAME}"*.svg
+      $SUDO sudo rm -f "${cur_dir}/folder-${NEW_VARIANT_NAME}"*.svg
+      $SUDO sudo rm -f "${cur_dir}/user-${NEW_VARIANT_NAME}"*.svg
     else
       echo "Skipping $cur_dir (directory not found)"
     fi
